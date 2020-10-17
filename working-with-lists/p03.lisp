@@ -1,0 +1,15 @@
+(defun element-at (list n) 
+    (cond
+        ((equal list nil) nil)
+        ((<= n 0) nil) 
+        ((= n 1) (car list))
+        ((> n 1) (element-at (cdr list) (- n 1)))
+    )
+)
+
+(format t "~S ~%" (element-at nil 1)  )
+(format t "~S ~%" (element-at '() 0)  )
+(format t "~S ~%" (element-at '(A) 0)  ) 
+(format t "~S ~%" (element-at '(A B) 1)  )
+(format t "~S ~%" (element-at '(A B C D E) 2)  )
+(format t "~S ~%" (element-at '(A B C D E) 4)  )
