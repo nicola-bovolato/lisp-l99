@@ -1,7 +1,18 @@
+(defun reverse-list (list) 
+    (cond 
+        ((equal list nil) nil)
+        (t (reverse-list-fun list '()))
+    ))
+(defun reverse-list-fun (list reversed)
+    (cond
+        ((equal list nil) reversed)
+        (t (reverse-list-fun (cdr list) (cons (car list) reversed)))
+    ))
+    
 (defun range (start end)
     (cond
-        ((> start end) nil)
         ((= start end) (cons start nil))
+        ((> start end) (reverse-list (range-fun end start)))
         (t (range-fun start end))
     )
 )

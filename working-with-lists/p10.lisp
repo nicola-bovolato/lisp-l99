@@ -82,10 +82,10 @@
 )
 
 
-(format t "~S " (encode-list nil)  )
-(format t "~S " (encode-list '())  ) 
-(format t "~S " (encode-list '(A A A))  ) 
-(format t "~S " (encode-list '(A B C D))  ) 
-(format t "~S " (encode-list '(A A B A A C D))  ) 
-(format t "~S " (encode-list '(A B C D D D D))  ) 
-(format t "~S " (encode-list '(A A A B B B B B C C D C))  ) 
+(format t "~S~%" (encode-list nil)  )
+(format t "~S~%" (encode-list '())  ) 
+(format t "~S~%" (encode-list '(A A A))  ) 
+(format t "~S~%" (encode-list '(A B C D))  ) 
+(format t "~S~%" (encode-list '(A A B A A C D))  ) 
+(format t "~S~%" (encode-list '(A B C D D D D))  ) 
+(format t "~S~%" (encode-list '(A A A B B B B B C C D C))  ) 

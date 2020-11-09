@@ -65,8 +65,8 @@
 
 (defun range (start end)
     (cond
-        ((> start end) nil)
         ((= start end) (cons start nil))
+        ((> start end) (reverse-list (range-fun end start)))
         (t (range-fun start end))
     )
 )
@@ -84,14 +84,15 @@
     (cond
         ((equal list nil) nil)
         ((<= n 0) nil)
-        (t (rnd-select-fun list '() n (+ (random n) 1)))
+        ((<= (element-number list) n) (rnd-select-fun list '() (element-number list) (+ (random (element-number list)) 1) ))
+        (t (rnd-select-fun list '() n (+ (random (element-number list)) 1)))
     ))
 
 (defun rnd-select-fun (list selected n pick)
     (cond
         ((equal list nil) selected)
-        ((= n 0) selected)
-        (t (rnd-select-fun (remove-at list pick) (cons (element-at list pick) selected) (- n 1) (+ (random n) 1)))
+        ((= n 1) (cons (element-at list pick) selected))
+        (t (rnd-select-fun (remove-at list pick) (cons (element-at list pick) selected) (- n 1) (+ (random (- n 1)) 1)))
     ))
 
 ;;TODO
@@ -99,7 +100,7 @@
     (cond
         ((<= n 0) nil)
         ((<= end 0) nil)
-        (t (rnd-select (range 0 end) n))
+        (t (rnd-select (range 1 end) n))
     ))
 
 

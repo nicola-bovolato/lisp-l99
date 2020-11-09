@@ -57,7 +57,7 @@
 )
 
 (format t "~S~%" (remove-at nil 0 )  )
-(format t "~S~%" (remove-at '() 1 )  ) 
+(format t "~S~%" (remove-at '(A) 1 )  ) 
 (format t "~S~%" (remove-at '(A B C D) 4 )  ) 
 (format t "~S~%" (remove-at '(A B C D E F G H I) 1)  ) 
 (format t "~S~%" (remove-at '(A B C D E F G H I) 5)  ) 

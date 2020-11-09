@@ -65,20 +65,19 @@
 
 (setf *random-state* (make-random-state t))
 
-;;TODO
 (defun rnd-select (list n)
     (cond
         ((equal list nil) nil)
         ((<= n 0) nil)
-        ((< (element-number list) n) (rnd-select-fun list '() (element-number list) (+ (random (element-number list)) 1) ))
-        (t (rnd-select-fun list '() n (+ (random n) 1)))
+        ((<= (element-number list) n) (rnd-select-fun list '() (element-number list) (+ (random (element-number list)) 1) ))
+        (t (rnd-select-fun list '() n (+ (random (element-number list)) 1)))
     ))
 
 (defun rnd-select-fun (list selected n pick)
     (cond
         ((equal list nil) selected)
-        ((= n 0) selected)
-        (t (rnd-select-fun (remove-at list pick) (cons (element-at list pick) selected) (- n 1) (+ (random n) 1)))
+        ((= n 1) (cons (element-at list pick) selected))
+        (t (rnd-select-fun (remove-at list pick) (cons (element-at list pick) selected) (- n 1) (+ (random (- n 1)) 1)))
     ))
 
 
@@ -87,3 +86,6 @@
 (format t "~S~%" (rnd-select '(A B C) 1)) 
 (format t "~S~%" (rnd-select '(A B C D) 20)) 
 (format t "~S~%" (rnd-select '(A B C D E F G H) 8)) 
+
+;; '(A B C D) '() 4 3
+;; '(A B C D) '() 3 3
