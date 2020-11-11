@@ -1,3 +1,5 @@
+;;;; Find the last box of a list
+
 (defun last-element (list) 
     (cond 
         ((equal (cdr list) nil) (car list))

@@ -1,5 +1,8 @@
-(load (merge-pathnames "p03.lisp" *load-truename*)) ;; element-at
-(load (merge-pathnames "p04.lisp" *load-truename*)) ;; element-number
+;;;; Find out whether a list is a palindrome.
+;;;; A palindrome can be read forward or backward; e.g. (x a m a x).
+
+(load (merge-pathnames "p03.lisp" *load-truename*)) ; element-at
+(load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number
 
 (defun is-palindrome (list) 
     (cond

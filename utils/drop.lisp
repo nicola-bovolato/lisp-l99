@@ -1,4 +1,4 @@
-(load (merge-pathnames "../working-with-lists/p05.lisp" *load-truename*)) ;;reverse-list
+(load (merge-pathnames "../working-with-lists/p05.lisp" *load-truename*)) ; reverse-list
 
 (defun drop (list drop)
     (cond 

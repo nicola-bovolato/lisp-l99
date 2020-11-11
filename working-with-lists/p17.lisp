@@ -1,4 +1,7 @@
-(load (merge-pathnames "p04.lisp" *load-truename*)) ;;element-number
+;;;; Split a list into two parts; the length of the first part is given.
+;;;; Do not use any predefined predicates.
+
+(load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number
 (load (merge-pathnames "../utils/skip.lisp" *load-truename*))
 (load (merge-pathnames "../utils/drop.lisp" *load-truename*))
 

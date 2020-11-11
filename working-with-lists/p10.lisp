@@ -1,7 +1,11 @@
-(load (merge-pathnames "p04.lisp" *load-truename*)) ;; element-number
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;; reverse-list 
-(load (merge-pathnames "p08.lisp" *load-truename*)) ;; compress-list
-(load (merge-pathnames "p09.lisp" *load-truename*)) ;; pack-list
+;;;; Run-length encoding of a list.
+;;;; Use the result of problem P09 to implement the so-called run-length encoding data compression method. 
+;;;; Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
+
+(load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 
+(load (merge-pathnames "p08.lisp" *load-truename*)) ; compress-list
+(load (merge-pathnames "p09.lisp" *load-truename*)) ; pack-list
 
 (defun encode-list (list)
     (cond

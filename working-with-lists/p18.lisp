@@ -1,6 +1,10 @@
-(load (merge-pathnames "p03.lisp" *load-truename*)) ;;element-at
-(load (merge-pathnames "p04.lisp" *load-truename*)) ;;element-number
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;;reverse-list
+;;;; Extract a slice from a list.
+;;;; Given two indices, I and K, the slice is the list containing the elements between the I'th and K'th element of the original list (both limits included). 
+;;;; Start counting the elements with 1.
+
+(load (merge-pathnames "p03.lisp" *load-truename*)) ; element-at
+(load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list
 (load (merge-pathnames "../utils/skip.lisp" *load-truename*))
 (load (merge-pathnames "../utils/drop.lisp" *load-truename*))
 

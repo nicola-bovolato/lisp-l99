@@ -1,14 +1,17 @@
-(load (merge-pathnames "p03.lisp" *load-truename*)) ;;element-at
-(load (merge-pathnames "p04.lisp" *load-truename*)) ;;element-number
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;;reverse-list
-(load (merge-pathnames "p20.lisp" *load-truename*)) ;;remove-at
-(load (merge-pathnames "p22.lisp" *load-truename*)) ;;range
-(load (merge-pathnames "p23.lisp" *load-truename*)) ;;random-select
+;;;; Lotto: Draw N different random numbers from the set 1..M.
+;;;; The selected numbers shall be returned in a list
+
+(load (merge-pathnames "p03.lisp" *load-truename*)) ; element-at
+(load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list
+(load (merge-pathnames "p20.lisp" *load-truename*)) ; remove-at
+(load (merge-pathnames "p22.lisp" *load-truename*)) ; range
+(load (merge-pathnames "p23.lisp" *load-truename*)) ; random-select
 (load (merge-pathnames "../utils/skip.lisp" *load-truename*))
 (load (merge-pathnames "../utils/drop.lisp" *load-truename*))
 (load (merge-pathnames "../utils/append-list.lisp" *load-truename*))
 
-;;TODO
+; TODO
 (defun lotto-select (n end) 
     (cond
         ((<= n 0) nil)

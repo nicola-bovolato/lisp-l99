@@ -1,4 +1,8 @@
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;; reverse-list 
+;;;; Eliminate consecutive duplicates of list elements.
+;;;; If a list contains repeated elements they should be replaced with a single copy of the element. 
+;;;; The order of the elements should not be changed.
+
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 
 
 (defun compress-list (list) 
     (cond

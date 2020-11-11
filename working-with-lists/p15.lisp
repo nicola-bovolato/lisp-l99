@@ -1,4 +1,6 @@
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;;reverse-list
+;;;; Replicate the elements of a list a given number of times.
+
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list
 
 (defun replicate-list (list times)
     (cond

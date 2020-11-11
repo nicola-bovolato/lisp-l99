@@ -1,3 +1,5 @@
+;;;; Reverse a list.
+
 (defun reverse-list (list) 
     (cond 
         ((equal list nil) nil)

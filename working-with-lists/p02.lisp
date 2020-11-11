@@ -1,3 +1,5 @@
+;;;; Find the last but one box of a list.
+
 (defun last-but-one-element (list) 
     (cond 
         ((equal (cdr list) nil) nil)

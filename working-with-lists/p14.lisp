@@ -1,4 +1,6 @@
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;;reverse-list
+;;;; Duplicate the elements of a list.
+
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list
 
 (defun duplicate-list (list)
     (cond

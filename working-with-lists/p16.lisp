@@ -1,4 +1,6 @@
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;;reverse-list
+;;;; Drop every N'th element from a list.
+
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list
 
 (defun drop-every-nth-element (list skip)
     (cond

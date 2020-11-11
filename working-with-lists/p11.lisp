@@ -1,7 +1,11 @@
-(load (merge-pathnames "p04.lisp" *load-truename*)) ;; element-number
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;; reverse-list 
-(load (merge-pathnames "p08.lisp" *load-truename*)) ;; compress-list
-(load (merge-pathnames "p09.lisp" *load-truename*)) ;; pack-list
+;;;; Modified run-length encoding.
+;;;; Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied into the result list. 
+;;;; Only elements with duplicates are transferred as (N E) lists.
+
+(load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 
+(load (merge-pathnames "p08.lisp" *load-truename*)) ; compress-list
+(load (merge-pathnames "p09.lisp" *load-truename*)) ; pack-list
 
 (defun encode-list (list)
     (cond

@@ -1,4 +1,7 @@
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;; reverse-list 
+;;;; Pack consecutive duplicates of list elements into sublists.
+;;;; If a list contains repeated elements they should be placed in separate sublists.
+
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 
 (load (merge-pathnames "../utils/repeat-element.lisp" *load-truename*))
 (load (merge-pathnames "../utils/skip.lisp" *load-truename*))
 
@@ -11,7 +14,9 @@
 (defun pack-list-fun (list packed)
     (cond
         ((equal list nil) packed)
-        (t (pack-list-fun (skip list (pack-list-count-fun list 1)) (cons (repeat-element (car list) (pack-list-count-fun list 1)) packed)))
+        (t (pack-list-fun 
+            (skip list (pack-list-count-fun list 1)) 
+            (cons (repeat-element (car list) (pack-list-count-fun list 1)) packed)))
     ))
 
 (defun pack-list-count-fun (list count)

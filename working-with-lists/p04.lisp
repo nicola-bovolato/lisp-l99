@@ -1,3 +1,5 @@
+;;;; Find the number of elements of a list.
+
 (defun element-number (list)
     (cond 
         ((equal list nil) 0)

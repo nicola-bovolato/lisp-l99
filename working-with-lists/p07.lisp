@@ -1,4 +1,8 @@
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;; reverse-list 
+;;;; Flatten a nested list structure.
+;;;; Transform a list, possibly holding lists as elements into a `flat' list
+;;;; by replacing each list with its elements (recursively).
+
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 
 (load (merge-pathnames "../utils/append-list.lisp" *load-truename*))
 
 (defun flatten-list (list) 

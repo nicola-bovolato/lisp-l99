@@ -1,5 +1,7 @@
-(load (merge-pathnames "p04.lisp" *load-truename*)) ;;element-number
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;;reverse-list
+;;;; Remove the K'th element from a list.
+
+(load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list
 (load (merge-pathnames "../utils/skip.lisp" *load-truename*))
 (load (merge-pathnames "../utils/drop.lisp" *load-truename*))
 (load (merge-pathnames "../utils/append-list.lisp" *load-truename*))

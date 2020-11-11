@@ -1,6 +1,10 @@
-(load (merge-pathnames "p05.lisp" *load-truename*)) ;; reverse-list 
-(load (merge-pathnames "p07.lisp" *load-truename*)) ;; flatten-list 
+;;;; Decode a run-length encoded list.
+;;;; Given a run-length code list generated as specified in problem P11. Construct its uncompressed version.
+
+(load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 
+(load (merge-pathnames "p07.lisp" *load-truename*)) ; flatten-list 
 (load (merge-pathnames "../utils/repeat-element.lisp" *load-truename*))
+
 (defun decode-list (list)
     (cond
         ((equal list nil) nil)
