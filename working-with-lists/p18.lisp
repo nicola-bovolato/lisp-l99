@@ -1,53 +1,23 @@
-(defun reverse-list (list) 
-    (cond 
-        ((equal list nil) nil)
-        (t (reverse-list-fun list '()))
-    ))
-(defun reverse-list-fun (list reversed)
-    (cond
-        ((equal list nil) reversed)
-        (t (reverse-list-fun (cdr list) (cons (car list) reversed)))
-    ))
-(defun element-at (list n) 
-    (cond
-        ((equal list nil) nil)
-        ((<= n 0) nil) 
-        ((= n 1) (car list))
-        ((> n 1) (element-at (cdr list) (- n 1)))
-    ))
-(defun element-number (list)
-    (cond 
-        ((equal list nil) 0)
-        (t (+ 1 (element-number (cdr list))))
-    ))
-(defun skip (list skip)
-    (cond 
-        ((equal list nil) nil)
-        ((< skip 0) nil)
-        ((= skip 0) list)
-        (t (skip (cdr list) (- skip 1)))
-    ))
-
-(defun drop (list drop)
-    (cond 
-        ((equal list nil) nil)
-        ((< drop 0) nil)
-        ((= drop 0) list)
-        (t (reverse-list (skip (reverse-list list) drop)))
-    ))
+(load (merge-pathnames "p03.lisp" *load-truename*)) ;;element-at
+(load (merge-pathnames "p04.lisp" *load-truename*)) ;;element-number
+(load (merge-pathnames "p05.lisp" *load-truename*)) ;;reverse-list
+(load (merge-pathnames "../utils/skip.lisp" *load-truename*))
+(load (merge-pathnames "../utils/drop.lisp" *load-truename*))
 
 (defun slice-list (list start end)
     (cond
         ((equal list nil) nil)
-        ((< start 1) nil)
-        ((> end (element-number list)) nil)
-        ((> start end) nil)
+        ((< start 1) (slice-list list 1 end))
+        ((> end (element-number list)) (slice-list list start (element-number list)))
+        ((> start end) (slice-list list end start))
         ((= start end) (cons (element-at list start) nil))
         (t (skip (drop list (- (element-number list) end)) (- start 1)))
-    )
-)
+    ))
 
-(format t "~S ~%" (slice-list nil 0 0))
-(format t "~S ~%" (slice-list '() 1 0)) 
-(format t "~S ~%" (slice-list '(A B C D) 2 2)) 
-(format t "~S ~%" (slice-list '(A B C D E F G H I) 3 7)) 
+(assert (equal (slice-list '() 1 0) nil))
+(assert (equal (slice-list '(A B C D) 2 2) '(B)))
+(assert (equal (slice-list '(A B C D E F G H I) 3 7) '(C D E F G))) 
+(assert (equal (slice-list '(A B C D E F G H I) 7 3) '(C D E F G))) 
+(assert (equal (slice-list '(A B C D E F G H I) 3 9) '(C D E F G H I))) 
+(assert (equal (slice-list '(A B C D E F G H I) -1 7) '(A B C D E F G))) 
+(assert (equal (slice-list '(A B C D E F G H I) 1 7) '(A B C D E F G))) 

@@ -1,34 +1,6 @@
-(defun reverse-list (list) 
-    (cond 
-        ((equal list nil) nil)
-        (t (reverse-list-fun list '()))
-    ))
-
-(defun reverse-list-fun (list reversed)
-    (cond
-        ((equal list nil) reversed)
-        (t (reverse-list-fun (cdr list) (cons (car list) reversed)))
-    ))
-
-(defun repeat-element (element times)
-    (cond
-        ((<= times 0) nil)
-        (t (repeat-element-fun element times '()))
-    ))
-
-(defun repeat-element-fun (element times repeated)
-    (cond
-        ((= times 0) repeated)
-        (t (repeat-element-fun element (- times 1) (cons element repeated)))
-    ))
-
-(defun skip (list skip)
-    (cond 
-        ((equal list nil) nil)
-        ((< skip 0) nil)
-        ((= skip 0) list)
-        (t (skip (cdr list) (- skip 1)))
-    ))
+(load (merge-pathnames "p05.lisp" *load-truename*)) ;; reverse-list 
+(load (merge-pathnames "../utils/repeat-element.lisp" *load-truename*))
+(load (merge-pathnames "../utils/skip.lisp" *load-truename*))
 
 (defun pack-list (list) 
     (cond
@@ -49,10 +21,9 @@
         (t count)
     ))
 
-(format t "~S ~%" (pack-list nil)  )
-(format t "~S ~%" (pack-list '())  ) 
-(format t "~S ~%" (pack-list '(A A A ))  ) 
-(format t "~S ~%" (pack-list '(A B C D))  ) 
-(format t "~S ~%" (pack-list '(A A B A A C D))  ) 
-(format t "~S ~%" (pack-list '(A B C D D D D))  ) 
-(format t "~S ~%" (pack-list '(A A A B B B B B C C D C))  ) 
+(assert (equal (pack-list '()) '())) 
+(assert (equal (pack-list '(A A A )) '((A A A )))) 
+(assert (equal (pack-list '(A B C D)) '((A) (B) (C) (D)))) 
+(assert (equal (pack-list '(A A B A A C D)) '((A A) (B) (A A) (C) (D)))) 
+(assert (equal (pack-list '(A B C D D D D)) '((A) (B) (C) (D D D D)))) 
+(assert (equal (pack-list '(A A A B B B B B C C D C)) '((A A A) (B B B B B) (C C) (D) (C)))) 

@@ -1,14 +1,4 @@
-(defun reverse-list (list) 
-    (cond 
-        ((equal list nil) nil)
-        (t (reverse-list-fun list '()))
-    ))
-
-(defun reverse-list-fun (list reversed)
-    (cond
-        ((equal list nil) reversed)
-        (t (reverse-list-fun (cdr list) (cons (car list) reversed)))
-    ))
+(load (merge-pathnames "p05.lisp" *load-truename*)) ;;reverse-list
 
 (defun encode-list (list)
     (cond
@@ -32,10 +22,9 @@
         ) 
     ))
 
-(format t "~S ~%" (encode-list nil)  )
-(format t "~S ~%" (encode-list '())  ) 
-(format t "~S ~%" (encode-list '(A A A))  ) 
-(format t "~S ~%" (encode-list '(A B C D))  ) 
-(format t "~S ~%" (encode-list '(A A B A A C D))  ) 
-(format t "~S ~%" (encode-list '(A B C D D D D))  ) 
-(format t "~S ~%" (encode-list '(A A A B B B B B C C D C))  ) 
+(assert (equal (encode-list '()) '()))
+(assert (equal (encode-list '(A A A)) '((3 A))))
+(assert (equal (encode-list '(A B C D)) '(A B C D)))
+(assert (equal (encode-list '(A A B A A C D)) '((2 A) B (2 A) C D)))
+(assert (equal (encode-list '(A B C D D D D)) '(A B C (4 D))))
+(assert (equal (encode-list '(A A A B B B B B C C D C)) '((3 A) (5 B) (2 C) D C)))

@@ -1,14 +1,4 @@
-(defun reverse-list (list) 
-    (cond 
-        ((equal list nil) nil)
-        (t (reverse-list-fun list '()))
-    ))
-
-(defun reverse-list-fun (list reversed)
-    (cond
-        ((equal list nil) reversed)
-        (t (reverse-list-fun (cdr list) (cons (car list) reversed)))
-    ))
+(load (merge-pathnames "p05.lisp" *load-truename*)) ;;reverse-list
 
 (defun replicate-list (list times)
     (cond
@@ -24,8 +14,9 @@
         (t (replicate-list-fun list times (cons (car list) replicated) (- count 1)))
     ))
 
-(format t "~S ~%" (replicate-list nil 0)  )
-(format t "~S ~%" (replicate-list '() 1)  ) 
-(format t "~S ~%" (replicate-list '(A) 2)  ) 
-(format t "~S ~%" (replicate-list '(A B C D) 3)  ) 
-(format t "~S ~%" (replicate-list '(A A B A A C D) 2)  ) 
+(assert (equal (replicate-list '() 1) '())) 
+(assert (equal (replicate-list '(A) 2) '(A A))) 
+(assert (equal (replicate-list '(A B C D) 3) '(A A A B B B C C C D D D))) 
+(assert (equal (replicate-list '(A A B A A C D) 2) '(A A A A B B A A A A C C D D)))
+(assert (equal (replicate-list '(A A B A A C D) 1) '(A A B A A C D)))
+(assert (equal (replicate-list '(A A B A A C D) -1) nil))
