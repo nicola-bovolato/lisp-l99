@@ -33,6 +33,14 @@
 
 
 ;; version b
+;; okay i think this one needs some comments
+;; in words, my solution is this:
+;;  - you are given a list of elements
+;;  - you insert in a separate list (occurrencies) how many elements there are and how long they are
+;;  - you use your new list of occurrencies to keep track of how many elements are present in the list
+;;  - you read your initial list in search of the longest element
+;;  - when you find it you remove it from that list and add to a new one (sorted), you also update how many elements there are in the occurrencies list
+;;  - going from longest tho shortest, you cycle the whole list until empty
 
 (defun lfsort (list)
     (cond
@@ -40,11 +48,18 @@
         (t (lfsort-fun list '() (lfsort-sort-occurrencies (lfsort-calc-occurrencies list '())) ))
     ))
 
+;; this will return the occurrencies list e.g : '((A) (A B) (B C D) (B) (C) (A B C)) => '((3 1) (1 2) (2 3))
+;; Each element has this format: (n1 n2)
+;;   n1: number of times the element appears in the list
+;;   n2: length of the element
+
 (defun lfsort-calc-occurrencies (list occurrencies) 
     (cond
         ((equal list nil) (encode-list (numeric-sort occurrencies)))
         (t (lfsort-calc-occurrencies (cdr list) (insert-at (element-number (car list)) occurrencies 1)))
     ))
+
+;; sorts the occurrencies list (n1 n2) based on the value of n1
 
 (defun lfsort-sort-occurrencies (occurrencies) 
     (cond
@@ -60,25 +75,34 @@
         (t (lfsort-sort-occurrencies-fun occurrencies compared (+ current 1)))
     ))
 
+;; the real deal
+;; - looks at the occurrencies
+;; - populates the sorted list
+;; - removes elements from the original list
+;; - updates the number of elements in the occurrencies list
+
 (defun lfsort-fun (list sorted occurrencies) 
     (cond
         ((equal list nil) sorted)
-        ((equal occurrencies nil) sorted)
         ((= (car (car occurrencies)) 0) (lfsort-fun list sorted (cdr occurrencies)))
         (t (lfsort-fun (lfsort-remove-element list (car (cdr (car occurrencies))) 1) (cons (lfsort-first-element list (car (cdr (car occurrencies))) 1) sorted) (insert-at (cons (- (car (car occurrencies)) 1) (cdr (car occurrencies))) (remove-at occurrencies 1) 1)))
     ))
 
+;; finds the first element with a 'element-length' length in the list
 (defun lfsort-first-element (list element-length index)
     (cond
         ((= (element-number (element-at list index)) element-length) (element-at list index))
         (t (lfsort-first-element list element-length (+ index 1)))
     ))
 
+;; removes the first element with a 'element-length' length in the list
 (defun lfsort-remove-element (list element-length index)
     (cond
         ((= (element-number (element-at list index)) element-length) (remove-at list index))
         (t (lfsort-remove-element list element-length (+ index 1)))
     ))
+
+;; TODO: Add tests
 
 (format t "Version a: ~%")
 (format t "~S~%" (lsort '((A) (B) (C) (A B C) (A B) (B C D) (A))))
