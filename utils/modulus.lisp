@@ -1,0 +1,15 @@
+(defun modulus (dividend divisor) 
+    (cond
+        ((= dividend divisor) 0)
+        ((= divisor 0) dividend)
+        ((< dividend divisor) dividend)
+        ((< divisor 0) (- (- 0 1) (modulus dividend (- 0 divisor))))
+        (t (modulus (- dividend divisor) divisor))
+    ))
+
+(assert (equal (modulus 0 1) 0))
+(assert (equal (modulus 1 0) 1))
+(assert (equal (modulus 1 1) 0))
+(assert (equal (modulus 10 0) 10))
+(assert (equal (modulus 10 2) 0))
+(assert (equal (modulus 10 3) 1))
