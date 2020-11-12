@@ -1,3 +1,5 @@
+(load (merge-pathnames "../l-99/working-with-lists/p05.lisp" *load-truename*)) ; reverse-list
+
 (defun append-list (list1 list2)
     (cond
         ((equal list1 nil) list2)
@@ -14,3 +16,9 @@
             ))
         (t (append-list-fun list1 (cdr list2) (cons (car list2) list3)))
     ))
+
+(assert (equal (append-list '() '()) '()))
+(assert (equal (append-list '(A) '(B)) '(A B)))
+(assert (equal (append-list '(A B C) '(D)) '(A B C D)))
+(assert (equal (append-list '(A) '(B C D)) '(A B C D)))
+(assert (equal (append-list '(A B) '(C D)) '(A B C D)))
