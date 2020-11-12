@@ -1,6 +1,6 @@
 (load (merge-pathnames "swap.lisp" *load-truename*))
-(load (merge-pathnames "../working-with-lists/p03.lisp" *load-truename*)) ; element-at
-(load (merge-pathnames "../working-with-lists/p04.lisp" *load-truename*)) ; element-number
+(load (merge-pathnames "../l-99/working-with-lists/p03.lisp" *load-truename*)) ; element-at
+(load (merge-pathnames "../l-99/working-with-lists/p04.lisp" *load-truename*)) ; element-number
 
 (defun numeric-sort (list) 
     (cond

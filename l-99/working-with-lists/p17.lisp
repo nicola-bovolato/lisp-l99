@@ -2,8 +2,8 @@
 ;;;; Do not use any predefined predicates.
 
 (load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number
-(load (merge-pathnames "../utils/skip.lisp" *load-truename*))
-(load (merge-pathnames "../utils/drop.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/skip.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/drop.lisp" *load-truename*))
 
 (defun split-list (list length)
     (cond

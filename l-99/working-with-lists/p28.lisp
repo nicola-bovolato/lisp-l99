@@ -11,8 +11,8 @@
 (load (merge-pathnames "p10.lisp" *load-truename*)) ; encode-list
 (load (merge-pathnames "p20.lisp" *load-truename*)) ; remove-at
 (load (merge-pathnames "p21.lisp" *load-truename*)) ; insert-at
-(load (merge-pathnames "../utils/swap.lisp" *load-truename*))
-(load (merge-pathnames "../utils/numeric-sort.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/swap.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/numeric-sort.lisp" *load-truename*))
 
 
 ;; version a
@@ -102,7 +102,7 @@
         (t (lfsort-remove-element list element-length (+ index 1)))
     ))
 
-;; TODO: Add tests
+;; TODO: Replace with tests
 
 (format t "Version a: ~%")
 (format t "~S~%" (lsort '((A) (B) (C) (A B C) (A B) (B C D) (A))))

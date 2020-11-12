@@ -2,8 +2,8 @@
 ;;;; If a list contains repeated elements they should be placed in separate sublists.
 
 (load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 
-(load (merge-pathnames "../utils/repeat-element.lisp" *load-truename*))
-(load (merge-pathnames "../utils/skip.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/repeat-element.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/skip.lisp" *load-truename*))
 
 (defun pack-list (list) 
     (cond

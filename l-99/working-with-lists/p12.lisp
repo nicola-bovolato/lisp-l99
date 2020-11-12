@@ -3,7 +3,7 @@
 
 (load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 
 (load (merge-pathnames "p07.lisp" *load-truename*)) ; flatten-list 
-(load (merge-pathnames "../utils/repeat-element.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/repeat-element.lisp" *load-truename*))
 
 (defun decode-list (list)
     (cond

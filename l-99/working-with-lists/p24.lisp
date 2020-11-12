@@ -7,9 +7,9 @@
 (load (merge-pathnames "p20.lisp" *load-truename*)) ; remove-at
 (load (merge-pathnames "p22.lisp" *load-truename*)) ; range
 (load (merge-pathnames "p23.lisp" *load-truename*)) ; random-select
-(load (merge-pathnames "../utils/skip.lisp" *load-truename*))
-(load (merge-pathnames "../utils/drop.lisp" *load-truename*))
-(load (merge-pathnames "../utils/append-list.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/skip.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/drop.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/append-list.lisp" *load-truename*))
 
 ; TODO
 (defun lotto-select (n end) 

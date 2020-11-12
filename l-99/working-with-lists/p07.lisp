@@ -3,7 +3,7 @@
 ;;;; by replacing each list with its elements (recursively).
 
 (load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 
-(load (merge-pathnames "../utils/append-list.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/append-list.lisp" *load-truename*))
 
 (defun flatten-list (list) 
     (cond

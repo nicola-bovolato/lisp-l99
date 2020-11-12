@@ -3,9 +3,9 @@
 (load (merge-pathnames "p01.lisp" *load-truename*)) ; last-element
 (load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number
 (load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list
-(load (merge-pathnames "../utils/abs-n.lisp" *load-truename*))
-(load (merge-pathnames "../utils/skip.lisp" *load-truename*))
-(load (merge-pathnames "../utils/drop.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/abs-n.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/skip.lisp" *load-truename*))
+(load (merge-pathnames "../../utils/drop.lisp" *load-truename*))
 
 (defun rotate-list (list n)
     (cond
