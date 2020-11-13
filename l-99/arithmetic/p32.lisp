@@ -1,4 +1,5 @@
 ;;;; Determine the greatest common divisor of two positive integer numbers.
+;;;; ---
 ;;;; Use Euclid's algorithm.
 
 (load (merge-pathnames "../../utils/modulus.lisp" *load-truename*))

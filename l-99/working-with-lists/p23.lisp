@@ -1,4 +1,5 @@
 ;;;; Extract a given number of randomly selected elements from a list.
+;;;; ---
 ;;;; The selected items shall be returned in a list.
 
 (load (merge-pathnames "p03.lisp" *load-truename*)) ; element-at

@@ -1,4 +1,5 @@
 ;;;; Determine the prime factors of a given positive integer.
+;;;; ---
 ;;;; Construct a flat list containing the prime factors in ascending order.
 
 (load (merge-pathnames "p31.lisp" *load-truename*)) ; is-prime

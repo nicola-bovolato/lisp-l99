@@ -1,4 +1,5 @@
 ;;;; Determine whether two positive integer numbers are coprime.
+;;;; ---
 ;;;; Two numbers are coprime if their greatest common divisor equals 1.
 
 (load (merge-pathnames "p32.lisp" *load-truename*)) ; great-common-divisor

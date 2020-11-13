@@ -1,4 +1,5 @@
 ;;;; Split a list into two parts; the length of the first part is given.
+;;;; ---
 ;;;; Do not use any predefined predicates.
 
 (load (merge-pathnames "p04.lisp" *load-truename*)) ; element-number

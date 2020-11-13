@@ -1,4 +1,5 @@
 ;;;; Pack consecutive duplicates of list elements into sublists.
+;;;; ---
 ;;;; If a list contains repeated elements they should be placed in separate sublists.
 
 (load (merge-pathnames "p05.lisp" *load-truename*)) ; reverse-list 

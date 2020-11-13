@@ -1,4 +1,5 @@
 ;;;; Determine the prime factors of a given positive integer (2).
+;;;; ---
 ;;;; Construct a list containing the prime factors and their multiplicity.
 
 (load (merge-pathnames "p31.lisp" *load-truename*)) ; is-prime

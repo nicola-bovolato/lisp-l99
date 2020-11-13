@@ -1,4 +1,5 @@
 ;;;; Lotto: Draw N different random numbers from the set 1..M.
+;;;; ---
 ;;;; The selected numbers shall be returned in a list
 
 (load (merge-pathnames "p03.lisp" *load-truename*)) ; element-at
