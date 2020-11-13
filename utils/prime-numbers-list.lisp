@@ -26,3 +26,4 @@
 (assert (equal (prime-numbers-list 1 20) '(1 2 3 5 7 11 13 17 19)))
 (assert (equal (prime-numbers-list 7 20) '(7 11 13 17 19)))
 (assert (equal (prime-numbers-list 8 20) '(11 13 17 19)))
+(assert (equal (prime-numbers-list 20 8) '(19 17 13 11)))
