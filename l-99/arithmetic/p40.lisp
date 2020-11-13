@@ -5,10 +5,8 @@
 ;;;; It has been numerically confirmed up to very large numbers (much larger than we can go with our Prolog system).
 ;;;; Write a predicate to find the two prime numbers that sum up to a given even integer.
 
-(load (merge-pathnames "../working-with-lists/p04.lisp" *load-truename*)) ; element-number
 (load (merge-pathnames "../../utils/prime-numbers-list.lisp" *load-truename*))
 (load (merge-pathnames "../../utils/is-list-prime.lisp" *load-truename*))
-(load (merge-pathnames "../../utils/sum-of-list.lisp" *load-truename*))
 
 (defun goldbach (n)
     (cond
@@ -27,11 +25,11 @@
 
 (defun test-goldbach (n)
     (cond 
-        ((= (modulus n 2) 1) (assert (equal (goldbach n) nil)))
+        ((= (mod n 2) 1) (assert (equal (goldbach n) nil)))
         (t (assert 
             (and 
-                (and (equal (sum-of-list (goldbach n)) n) (is-list-prime (goldbach n))) 
-                (equal (element-number (goldbach n)) 2))
+                (and (equal (apply '+ (goldbach n)) n) (is-list-prime (goldbach n))) 
+                (equal (length (goldbach n)) 2))
         ))
     ))
 
