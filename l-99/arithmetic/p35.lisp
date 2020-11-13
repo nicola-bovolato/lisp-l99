@@ -19,7 +19,12 @@
 (defun prime-factors-fun (n prime-numbers list) 
     (cond
         ((= (car prime-numbers) 1) list)
-        ((= (modulus n (car prime-numbers)) 0) (prime-factors-fun (integer-division n (car prime-numbers)) (prime-numbers-list (integer-division n (car prime-numbers)) 1) (insert-at (car prime-numbers) list (+ (element-number list) 1))))
+        ((= (modulus n (car prime-numbers)) 0) 
+            (prime-factors-fun 
+                (integer-division n (car prime-numbers)) 
+                (prime-numbers-list (integer-division n (car prime-numbers)) 1) 
+                (insert-at (car prime-numbers) list (+ (element-number list) 1))
+            ))
         (t (prime-factors-fun n (cdr prime-numbers) list))
     ))
 

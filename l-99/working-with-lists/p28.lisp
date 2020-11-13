@@ -27,7 +27,9 @@
     (cond
         ((= compared (element-number list)) list)
         ((> current (element-number list)) (lsort-fun list (+ compared 1) (+ compared 2)))
-        ((> (element-number (element-at list compared)) (element-number (element-at list current))) (lsort-fun (swap list compared current)  compared (+ current 1)))
+        ((> (element-number (element-at list compared)) (element-number (element-at list current))) 
+            (lsort-fun (swap list compared current)  compared (+ current 1)
+        ))
         (t (lsort-fun list compared (+ current 1)))
     ))
 
@@ -71,7 +73,9 @@
     (cond
         ((= compared (element-number occurrencies)) occurrencies)
         ((> current (element-number occurrencies)) (lfsort-sort-occurrencies-fun occurrencies (+ compared 1) (+ compared 2)))
-        ((> (car (element-at occurrencies compared)) (car (element-at occurrencies current))) (lfsort-sort-occurrencies-fun (swap occurrencies compared current) compared (+ current 1)))
+        ((> (car (element-at occurrencies compared)) (car (element-at occurrencies current))) 
+            (lfsort-sort-occurrencies-fun (swap occurrencies compared current) compared (+ current 1)
+        ))
         (t (lfsort-sort-occurrencies-fun occurrencies compared (+ current 1)))
     ))
 
@@ -85,7 +89,11 @@
     (cond
         ((equal list nil) sorted)
         ((= (car (car occurrencies)) 0) (lfsort-fun list sorted (cdr occurrencies)))
-        (t (lfsort-fun (lfsort-remove-element list (car (cdr (car occurrencies))) 1) (cons (lfsort-first-element list (car (cdr (car occurrencies))) 1) sorted) (insert-at (cons (- (car (car occurrencies)) 1) (cdr (car occurrencies))) (remove-at occurrencies 1) 1)))
+        (t (lfsort-fun 
+            (lfsort-remove-element list (car (cdr (car occurrencies))) 1) 
+            (cons (lfsort-first-element list (car (cdr (car occurrencies))) 1) sorted) 
+            (insert-at (cons (- (car (car occurrencies)) 1) (cdr (car occurrencies))) (remove-at occurrencies 1) 1)
+        ))
     ))
 
 ;; finds the first element with a 'element-length' length in the list
@@ -104,13 +112,13 @@
 
 ;; TODO: Replace with tests
 
-(format t "Version a: ~%")
+(format t "Version a: (order the elements according to their length) ~%")
 (format t "~S~%" (lsort '((A) (B) (C) (A B C) (A B) (B C D) (A))))
 (format t "~S~%" (lsort '((A) (A B) (A B C))))
 (format t "~S~%" (lsort '((A B C) (A) (A B))))
 (format t "~S~%" (lsort '((A B C) (A B) (A))))
 (format t "~%")
-(format t "Version b: ~%")
+(format t "Version b: (order the elements according to how many elements with that length are in the list) ~%")
 (format t "~S~%" (lfsort '((A) (B) (C) (A B C) (A B) (B C D) (A))))
 (format t "~S~%" (lfsort '((A) (A B) (A B C))))
 (format t "~S~%" (lfsort '((A B C) (A) (A B))))
