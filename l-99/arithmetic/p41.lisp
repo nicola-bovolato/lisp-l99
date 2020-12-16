@@ -1,3 +1,10 @@
+;;;; A list of Goldbach compositions.
+;;;; ----
+;;;; Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.
+;;;; In most cases, if an even number is written as the sum of two prime numbers, one of them is very small. 
+;;;; Very rarely, the primes are both bigger than say 50.
+;;;; Try to find out how many such cases there are in the range 2..3000.
+
 (load (merge-pathnames "p40.lisp" *load-truename*)) ; goldbach
 (load (merge-pathnames "../working-with-lists/p05.lisp" *load-truename*)) ; reverse-list
 
@@ -28,3 +35,6 @@
 (test-goldbach-list 3 30)
 (test-goldbach-list 50 10)
 (test-goldbach-list 13 17)
+
+;; the functions are not optimized and it take ages to run this (~6 minutes)
+(goldbach-list 2 3000) 
